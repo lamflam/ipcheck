@@ -30,6 +30,11 @@ module.exports = exports = {
 		
 		var s  = ip.split('.');
 
+                // The << operator works with signed integers but we
+                // need to make sure the ip is always treated as an unsigned
+                // (positive) integer. The >>> operator is the only operator in
+                // js that works on unsigned ints, so use it at the end to make
+                // sure that we return an unsigned int.
 		return (s[0]<<24 | s[1]<<16 | s[2]<<8 | s[3])>>>0;
 	}
 }
